@@ -1,5 +1,10 @@
 # flexiblas: FlexiBLAS API Interface for R
 
+<!-- badges: start -->
+[![Build Status](https://github.com/Enchufa2/r-flexiblas/workflows/build/badge.svg)](https://github.com/Enchufa2/r-flexiblas/actions)
+[![CRAN\_Status\_Badge](https://www.r-pkg.org/badges/version/flexiblas)](https://cran.r-project.org/package=flexiblas)
+<!-- badges: end -->
+
 [FlexiBLAS](https://www.mpi-magdeburg.mpg.de/projects/flexiblas) is a BLAS
 wrapper library which allows to change the BLAS without recompiling the programs.
 
