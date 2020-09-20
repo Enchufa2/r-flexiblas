@@ -11,6 +11,7 @@ Description: FlexiBLAS is a BLAS wrapper library which allows to change the BLAS
     without recompiling the programs.
 License: GPL (>= 3)
 Encoding: UTF-8
+OS_type: unix
 URL: https://github.com/Enchufa2/flexiblas
 BugReports: https://github.com/Enchufa2/flexiblas/issues
 Suggests: tinytest
