@@ -12,8 +12,8 @@ Description: FlexiBLAS is a BLAS wrapper library which allows to change the BLAS
 License: GPL (>= 3)
 Encoding: UTF-8
 OS_type: unix
-URL: https://github.com/Enchufa2/flexiblas
-BugReports: https://github.com/Enchufa2/flexiblas/issues
+URL: https://github.com/Enchufa2/r-flexiblas
+BugReports: https://github.com/Enchufa2/r-flexiblas/issues
 Suggests: tinytest
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.1.1
