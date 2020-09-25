@@ -46,6 +46,7 @@ flexiblas_current_backend <- function() {
 #'
 #' Get or set the number of threads for the BLAS backend.
 #'
+#' @return `flexiblas_get_num_threads` returns the number of threads.
 #' @seealso [flexiblas_avail], [flexiblas_version], [flexiblas-backends]
 #' @name flexiblas-threads
 #' @md
@@ -73,7 +74,7 @@ flexiblas_load_backend <- function(name) {
   .Call(`_flexiblas_load_backend`, name)
 }
 
-#' @examples \dontrun{
+#' @examples \donttest{
 #' max_threads <- 4
 #' n <- 2000
 #' runs <- 10
@@ -94,12 +95,13 @@ flexiblas_load_backend <- function(name) {
 #'
 #' @name flexiblas-threads
 #' @param n number of threads.
+#' @return `flexiblas_set_num_threads` returns nothing.
 #' @export
 flexiblas_set_num_threads <- function(n) {
   invisible(.Call(`_flexiblas_set_num_threads`, n))
 }
 
-#' @examples \dontrun{
+#' @examples \donttest{
 #' n <- 2000
 #' runs <- 10
 #' ignore <- "__FALLBACK__"
@@ -108,7 +110,7 @@ flexiblas_set_num_threads <- function(n) {
 #' B <- matrix(runif(n*n), nrow=n)
 #'
 #' # load backends
-#' backends <- grep(ignore, flexiblas_list(), value=TRUE, invert=TRUE)
+#' backends <- setdiff(flexiblas_list(), ignore)
 #' idx <- flexiblas_load_backend(backends)
 #'
 #' # benchmark
@@ -116,7 +118,7 @@ flexiblas_set_num_threads <- function(n) {
 #'   flexiblas_switch(i)
 #'
 #'   # warm-up
-#'   X <- matrix(runif(100*100), nrow=100) %*% matrix(runif(100*100), nrow=100)
+#'   C <- A[1:100, 1:100] %*% B[1:100, 1:100]
 #'
 #'   unname(system.time({
 #'     for (j in seq_len(runs))
@@ -124,12 +126,15 @@ flexiblas_set_num_threads <- function(n) {
 #'   })[3])
 #' })
 #'
-#' results <- data.frame(
-#'   backend = backends,
-#'   `timing [s]` = timings,
-#'   `performance [GFlops]` = (2 * (n / 1000)^3) / timings,
-#'   check.names = FALSE)
-#' results
+#' if (length(timings)) {
+#'   results <- data.frame(
+#'     backend = backends,
+#'     `timing [s]` = timings,
+#'     `performance [GFlops]` = (2 * (n / 1000)^3) / timings,
+#'     check.names = FALSE)
+#'
+#'   results[order(results$performance),]
+#' }
 #' }
 #' @name flexiblas-backends
 #' @param n loaded backend index.

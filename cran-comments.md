@@ -1,5 +1,7 @@
-## New submission
-Names quoted and URL added in DESCRIPTION.
+## Re-submission
+- Improved description.
+- Missing \value added.
+- Use \donttest instead of \dontrun
 
 ## Test environments
 - local R installation, R 4.0.2

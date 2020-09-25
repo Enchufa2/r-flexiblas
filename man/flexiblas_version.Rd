@@ -7,7 +7,7 @@
 flexiblas_version()
 }
 \value{
-A \link{numeric_version} object.
+A \link{package_version} object.
 }
 \description{
 Get current version of FlexiBLAS.

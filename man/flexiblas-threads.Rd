@@ -13,11 +13,16 @@ flexiblas_set_num_threads(n)
 \arguments{
 \item{n}{number of threads.}
 }
+\value{
+\code{flexiblas_get_num_threads} returns the number of threads.
+
+\code{flexiblas_set_num_threads} returns nothing.
+}
 \description{
 Get or set the number of threads for the BLAS backend.
 }
 \examples{
-\dontrun{
+\donttest{
 max_threads <- 4
 n <- 2000
 runs <- 10

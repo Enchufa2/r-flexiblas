@@ -15,8 +15,9 @@
 
 #' \pkg{flexiblas}: FlexiBLAS API Interface for \R
 #'
-#' FlexiBLAS is a BLAS wrapper library which allows to change the BLAS
-#' without recompiling the programs.
+#' Provides functions to switch the BLAS/LAPACK optimized backend
+#' and change the number of threads without leaving the R session, which needs
+#' to be linked against the FlexiBLAS wrapper library.
 #'
 #' @author Martin Koehler, Iñaki Ucar
 #' @references Koehler M., Saak J. (2020).

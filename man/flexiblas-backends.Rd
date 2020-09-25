@@ -35,7 +35,7 @@ the loaded backends if the operation was successful, or fail otherwise.
 Get current backend, list available ones, load and switch between backends.
 }
 \examples{
-\dontrun{
+\donttest{
 n <- 2000
 runs <- 10
 ignore <- "__FALLBACK__"
@@ -44,7 +44,7 @@ A <- matrix(runif(n*n), nrow=n)
 B <- matrix(runif(n*n), nrow=n)
 
 # load backends
-backends <- grep(ignore, flexiblas_list(), value=TRUE, invert=TRUE)
+backends <- setdiff(flexiblas_list(), ignore)
 idx <- flexiblas_load_backend(backends)
 
 # benchmark
@@ -52,7 +52,7 @@ timings <- sapply(idx, function(i) {
   flexiblas_switch(i)
 
   # warm-up
-  X <- matrix(runif(100*100), nrow=100) \%*\% matrix(runif(100*100), nrow=100)
+  C <- A[1:100, 1:100] \%*\% B[1:100, 1:100]
 
   unname(system.time({
     for (j in seq_len(runs))
@@ -60,12 +60,15 @@ timings <- sapply(idx, function(i) {
   })[3])
 })
 
-results <- data.frame(
-  backend = backends,
-  `timing [s]` = timings,
-  `performance [GFlops]` = (2 * (n / 1000)^3) / timings,
-  check.names = FALSE)
-results
+if (length(timings)) {
+  results <- data.frame(
+    backend = backends,
+    `timing [s]` = timings,
+    `performance [GFlops]` = (2 * (n / 1000)^3) / timings,
+    check.names = FALSE)
+
+  results[order(results$performance),]
+}
 }
 }
 \seealso{
