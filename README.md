@@ -112,7 +112,13 @@ $ dnf install R flexiblas-*
 
 ### Package
 
-Install the release version from CRAN:
+Within the environment above, it can be installed from the official repos:
+
+```bash
+$ dnf install R-flexiblas
+```
+
+or install the release version from CRAN:
 
 ``` r
 install.packages("flexiblas")
