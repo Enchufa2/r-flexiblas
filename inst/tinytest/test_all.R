@@ -11,7 +11,7 @@
 # You should have received a copy of the GNU General Public License
 # along with this program; if not, see <http://www.gnu.org/licenses/>.
 #
-# Copyright (C) 2020 Iñaki Ucar
+# Copyright (C) 2020-2021 Iñaki Ucar
 
 v <- flexiblas_version()
 l <- flexiblas_list()
@@ -32,8 +32,8 @@ if (flexiblas_avail()) {
   expect_true(length(l) > 0)
   expect_true(length(ll) == 1)
 
-  flexiblas_set_num_threads(nt - 1)
-  expect_equal(flexiblas_get_num_threads(), nt - 1)
+  flexiblas_set_num_threads(nt + 1)
+  expect_equal(flexiblas_get_num_threads(), nt + 1)
 } else {
   expect_true(is.na(v$major))
   expect_true(is.na(v$minor))
