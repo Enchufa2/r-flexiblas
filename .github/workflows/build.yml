@@ -34,8 +34,8 @@ jobs:
         R CMD check flexiblas_*.tar.gz --no-manual -o check
 
         # without flexiblas
-        mv /lib64/libflexiblas.so.3.0 /lib64/libflexiblas.so.3.0.bkp
-        ln -s /lib64/libopenblaso.so.0 /lib64/libflexiblas.so.3.0
+        mv /lib64/libflexiblas.so.3.1 /lib64/libflexiblas.so.3.1.bkp
+        ln -s /lib64/libopenblaso.so.0 /lib64/libflexiblas.so.3.1
         R CMD check flexiblas_*.tar.gz --no-manual -o check
 
     - name: Upload check results
