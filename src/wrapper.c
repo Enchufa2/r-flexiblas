@@ -12,11 +12,12 @@
  * You should have received a copy of the GNU General Public License
  * along with this program; if not, see <http://www.gnu.org/licenses/>.
  *
- * Copyright (C) 2020 Iñaki Ucar
+ * Copyright (C) 2020-2022 Iñaki Ucar
  */
 
 #include <R.h>
 #include <Rinternals.h>
+#define FLEXIBLAS_API_INT int32_t
 #include "flexiblas_api.h"
 
 #define BACKEND_CHAR_LEN 1024

@@ -13,7 +13,7 @@ jobs:
       fail-fast: false
       matrix:
         config:
-        - {distro: 'fedora', version: '33'}
+        - {distro: 'fedora', version: '35'}
 
     steps:
     - uses: actions/checkout@v2

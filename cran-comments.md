@@ -1,11 +1,9 @@
-## Re-submission
-- Improved description.
-- Missing \value added.
-- Use \donttest instead of \dontrun
+## Minor release
+- Sync with upstream
 
 ## Test environments
-- local R installation, R 4.0.2
-- fedora:33 on GitHub
+- local R installation, R 4.1.2
+- fedora:35 on GitHub
 
 ## R CMD check results
 0 errors | 0 warnings | 0 notes

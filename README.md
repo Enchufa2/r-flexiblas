@@ -100,7 +100,7 @@ without leaving your R session using this package. If you are not running
 Fedora >= 33, you can set up a proper environment using docker.
 
 ```bash
-$ docker run --rm -it fedora:33
+$ docker run --rm -it fedora:rawhide
 ```
 
 The following command installs R and all the optimized BLAS/LAPACK backends
