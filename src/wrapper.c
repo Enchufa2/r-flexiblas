@@ -22,7 +22,7 @@
 
 #define BACKEND_CHAR_LEN 1024
 
-SEXP _flexiblas_avail() {
+SEXP _flexiblas_avail(void) {
   SEXP ret = PROTECT(Rf_allocVector(LGLSXP, 1));
 
   INTEGER(ret)[0] = flexiblas_avail();
@@ -31,7 +31,7 @@ SEXP _flexiblas_avail() {
   return ret;
 }
 
-SEXP _flexiblas_current_backend() {
+SEXP _flexiblas_current_backend(void) {
   SEXP ret = PROTECT(Rf_allocVector(STRSXP, 1));
   char backend[BACKEND_CHAR_LEN];
 
@@ -44,7 +44,7 @@ SEXP _flexiblas_current_backend() {
   return ret;
 }
 
-SEXP _flexiblas_get_num_threads() {
+SEXP _flexiblas_get_num_threads(void) {
   SEXP ret = PROTECT(Rf_allocVector(INTSXP, 1));
 
   if (flexiblas_avail())
@@ -55,7 +55,7 @@ SEXP _flexiblas_get_num_threads() {
   return ret;
 }
 
-SEXP _flexiblas_list() {
+SEXP _flexiblas_list(void) {
   if (!flexiblas_avail()) return Rf_allocVector(STRSXP, 0);
 
   int nbackends = flexiblas_list(NULL, 0, 0);
@@ -71,7 +71,7 @@ SEXP _flexiblas_list() {
   return ret;
 }
 
-SEXP _flexiblas_list_loaded() {
+SEXP _flexiblas_list_loaded(void) {
   if (!flexiblas_avail()) return Rf_allocVector(STRSXP, 0);
 
   int nbackends = flexiblas_list_loaded(NULL, 0, 0);
@@ -129,7 +129,7 @@ SEXP _flexiblas_switch(SEXP n) {
   return R_NilValue;
 }
 
-SEXP _flexiblas_version() {
+SEXP _flexiblas_version(void) {
   if (!flexiblas_avail()) return Rf_allocVector(INTSXP, 0);
 
   SEXP ret = PROTECT(Rf_allocVector(INTSXP, 3));

@@ -4,15 +4,15 @@
 #include <R_ext/Rdynload.h>
 
 /* .Call calls */
-extern SEXP _flexiblas_avail();
-extern SEXP _flexiblas_current_backend();
-extern SEXP _flexiblas_get_num_threads();
-extern SEXP _flexiblas_list();
-extern SEXP _flexiblas_list_loaded();
+extern SEXP _flexiblas_avail(void);
+extern SEXP _flexiblas_current_backend(void);
+extern SEXP _flexiblas_get_num_threads(void);
+extern SEXP _flexiblas_list(void);
+extern SEXP _flexiblas_list_loaded(void);
 extern SEXP _flexiblas_load_backend(SEXP);
 extern SEXP _flexiblas_set_num_threads(SEXP);
 extern SEXP _flexiblas_switch(SEXP);
-extern SEXP _flexiblas_version();
+extern SEXP _flexiblas_version(void);
 
 static const R_CallMethodDef CallEntries[] = {
     {"_flexiblas_avail",           (DL_FUNC) &_flexiblas_avail,           0},
