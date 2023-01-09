@@ -1,4 +1,4 @@
-## Minor release
+## Minor release (resubmission)
 - Sync with upstream, fixes strict-prototypes warnings
 
 ## Test environments
