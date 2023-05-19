@@ -5,23 +5,22 @@ jobs:
   build:
     if: ${{ !contains(github.event.head_commit.message, '[ci skip]') }}
     runs-on: ubuntu-latest
-    name: ${{ matrix.config.distro }}:${{ matrix.config.version }}
+    name: ${{ matrix.image }}:${{ matrix.tag }}
     container:
-      image: ${{ matrix.config.distro }}:${{ matrix.config.version }}
+      image: ${{ matrix.repo }}/${{ matrix.image }}:${{ matrix.tag }}
 
     strategy:
       fail-fast: false
       matrix:
-        config:
-        - {distro: 'fedora', version: '37'}
+        include:
+        - {repo: 'ghcr.io/enchufa2', image: 'r-fedora', tag: 'rawhide'}
 
     steps:
     - uses: actions/checkout@v3
 
     - name: Install dependencies
-      run: |
-        dnf install -y R-devel devscripts-checkbashisms
-        Rscript -e 'install.packages("tinytest", repos="https://cran.r-project.org")'
+      run: install.packages("tinytest", repos="https://cran.r-project.org")
+      shell: Rscript {0}
 
     - name: Check
       env:
@@ -34,13 +33,14 @@ jobs:
         R CMD check flexiblas_*.tar.gz --no-manual -o check
 
         # without flexiblas
-        mv /lib64/libflexiblas.so.3.2 /lib64/libflexiblas.so.3.2.bkp
-        ln -s /lib64/libopenblaso.so.0 /lib64/libflexiblas.so.3.2
+        VER=$(flexiblas -v | cut -d" " -f3 | cut -d"." -f1,2)
+        mv /lib64/libflexiblas.so.$VER /lib64/libflexiblas.so.$VER.bkp
+        ln -s /lib64/libopenblaso.so.0 /lib64/libflexiblas.so.$VER
         R CMD check flexiblas_*.tar.gz --no-manual -o check
 
     - name: Upload check results
       if: ${{ failure() }}
       uses: actions/upload-artifact@master
       with:
-        name: r-${{ matrix.config.distro }}-${{ matrix.config.version }}-results
+        name: r-${{ matrix.image }}-${{ matrix.tag }}-results
         path: check
