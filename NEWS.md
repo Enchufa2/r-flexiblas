@@ -1,3 +1,8 @@
+# flexiblas 3.4.0
+
+- Sync with upstream v3.4.0.
+- Change license to LGPL3+ following upstream.
+
 # flexiblas 3.3.0
 
 - Sync with upstream v3.3.0.

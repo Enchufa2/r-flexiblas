@@ -1,7 +1,7 @@
 Package: flexiblas
 Type: Package
 Title: 'FlexiBLAS' API Interface
-Version: 3.3.0
+Version: 3.4.0
 Authors@R: c(
     person("Iñaki", "Ucar", email="iucar@fedoraproject.org",
       role=c("aut", "cph", "cre"), comment=c(ORCID="0000-0001-6403-5550")),
@@ -11,7 +11,7 @@ Description: Provides functions to switch the 'BLAS'/'LAPACK' optimized backend
     and change the number of threads without leaving the R session, which needs
     to be linked against the 'FlexiBLAS' wrapper library
     <https://www.mpi-magdeburg.mpg.de/projects/flexiblas>.
-License: GPL (>= 3)
+License: LGPL (>= 3)
 Encoding: UTF-8
 OS_type: unix
 URL: https://github.com/Enchufa2/r-flexiblas
