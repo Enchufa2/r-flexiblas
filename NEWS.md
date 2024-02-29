@@ -1,3 +1,7 @@
+# flexiblas devel
+
+- Sync with upstream v3.4.2.
+
 # flexiblas 3.4.0
 
 - Sync with upstream v3.4.0.

@@ -24,17 +24,17 @@
 #ifndef FLEXIBLAS_API_H
 #define FLEXIBLAS_API_H
 
-#ifndef INTEGER8
-/* #undef INTEGER8 */
+#ifndef FLEXIBLAS_INTEGER8
+/* #undef FLEXIBLAS_INTEGER8 */
 #endif
 
 
 #include <stdint.h>
 #ifndef FLEXIBLAS_API_INT
-#ifdef INTEGER8
+#ifdef FLEXIBLAS_INTEGER8
 #define FLEXIBLAS_API_INT int64_t
 #else
-#define FLEXIBLAS_API_INT int32_t
+#define FLEXIBLAS_API_INT int
 #endif
 #endif
 
