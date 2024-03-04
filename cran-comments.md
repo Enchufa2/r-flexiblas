@@ -1,5 +1,5 @@
-## Minor release
-- Sync with upstream, change license following upstream
+## Patch release
+- Sync with upstream, minor fixes
 
 ## Test environments
 - local R installation, R release

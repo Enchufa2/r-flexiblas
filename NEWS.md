@@ -1,6 +1,7 @@
 # flexiblas devel
 
 - Sync with upstream v3.4.2.
+- Fix tests: use integers consistently in threads setter/getter.
 
 # flexiblas 3.4.0
 

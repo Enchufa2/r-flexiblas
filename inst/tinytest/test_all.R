@@ -11,7 +11,7 @@
 # You should have received a copy of the GNU General Public License
 # along with this program; if not, see <http://www.gnu.org/licenses/>.
 #
-# Copyright (C) 2020-2021 Iñaki Ucar
+# Copyright (C) 2020-2024 Iñaki Ucar
 
 v <- flexiblas_version()
 l <- flexiblas_list()
@@ -29,11 +29,11 @@ if (flexiblas_avail()) {
   expect_false(is.na(cur))
   expect_false(is.na(nt))
 
-  expect_true(length(l) > 0)
-  expect_true(length(ll) == 1)
+  expect_true(length(l) > 0L)
+  expect_true(length(ll) == 1L)
 
-  flexiblas_set_num_threads(nt + 1)
-  expect_equal(flexiblas_get_num_threads(), nt + 1)
+  flexiblas_set_num_threads(nt + 1L)
+  expect_equal(flexiblas_get_num_threads(), nt + 1L)
 } else {
   expect_true(is.na(v$major))
   expect_true(is.na(v$minor))
@@ -41,13 +41,13 @@ if (flexiblas_avail()) {
   expect_true(is.na(cur))
   expect_true(is.na(nt))
 
-  expect_true(length(l) == 0)
-  expect_true(length(ll) == 0)
+  expect_true(length(l) == 0L)
+  expect_true(length(ll) == 0L)
 }
 
 idx <- flexiblas_load_backend(l)
 ll <- flexiblas_list_loaded()
-s <- character(0)
+s <- character(0L)
 for (i in seq_along(idx)) {
   flexiblas_switch(idx[i])
   s[i] <- flexiblas_current_backend()
